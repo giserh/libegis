@@ -195,10 +195,16 @@ namespace libegis {
 		return row >= 0 && row < data.size() && col >= 0 && col < data[row].size();
 	}
 
-	// void LatLonGrid::fill(int newval)
-	// {
-	// 
-	// }
+	void LatLonGrid::fill(int newval)
+	{
+		const int nrows = data.size();
+		const int ncols = data[0].size();
+		for (int i = 0; i < nrows; ++i) {
+			for (int j = 0; j < ncols; ++j) {
+				data[i][j] = newval;
+			}
+		}
+	}
 
 	void LatLonGrid::replace(int oldval, int newval)
 	{
@@ -248,15 +254,39 @@ namespace libegis {
 	// {
 	// 
 	// }
-	// 
-	// std::vector< std::vector<int> > LatLonGrid::longitudewrap(int Ny)
-	// {
-	// 
-	// }
-	// 
-	// LatLonGrid LatLonGrid::remapTo(LatLonGrid other)
-	// {
-	// 
-	// }
-
+	
+	std::vector< std::vector<int> > LatLonGrid::longitudewrap(int Ny)
+	{
+		int nrows = data.size();
+		int ncols = data[0].size();
+		int hy = Ny / 2;
+		int outcols = ncols + 2 * hy;
+		std::vector< std::vector<int> > result(nrows, std::vector<int>(outcols));
+		for (int i = 0; i < nrows; ++i) for (int j = 0; j < outcols; ++j) {
+			int incol = j - hy;
+			if (incol < 0) incol += ncols; // wrap
+			else if (incol >= ncols) incol -= ncols;
+			result[i][j] = data[i][incol];
+		}
+		return result;
+	}
+	
+	LatLonGrid LatLonGrid::remapTo(LatLonGrid other)
+	{
+		LatLonGrid result = result.copyOf(other);
+		result.setMissing(this->getMissing());
+		for (int i = 0; i < other.getNumLat(); ++i) {
+			int row = getRow(other.getLocation(i, 0));
+			for (int j = 0; j < other.getNumLon(); ++j) {
+				int col = getCol(other.getLocation(i, j));
+				if (this->isValid(row, col)) {
+					result.setValue(i, j, data[row][col]);
+				}
+				else {
+					result.setValue(i, j, result.missing);
+				}
+			}
+		}
+		return result;
+	}
 }
