@@ -67,9 +67,9 @@ namespace libegis {
 
 	std::string LatLon::toString()
 	{
-		std::string resultado = "[" + std::to_string(getLat()) + "," + std::to_string(getLon()) + "]";
-		std::cout << resultado << std::endl;
-		return resultado;
+		std::string result = "[" + std::to_string(getLat()) + "," + std::to_string(getLon()) + "]";
+		std::cout << result << std::endl;
+		return result;
 	}
 
 }

@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "LatLon.h"
+// #include "Pixel.h"
 
 namespace libegis {
 
