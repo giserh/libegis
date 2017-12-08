@@ -89,7 +89,7 @@ namespace libegis {
 
 	std::string Pixel::toString()
 	{
-		std::string result = "[" + std::to_string(getX()) + "," + std::to_string(getY()) + " " + std::to_string(getValue()) + "]";
+		std::string result = "[" + std::to_string(x) + "," + std::to_string(y) + " " + std::to_string(value) + "]";
 		return result;
 	}
 }
