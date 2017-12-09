@@ -56,6 +56,11 @@ namespace libegis {
 			return deg * M_PI / 180.0;
 		}
 
+		const double toDegrees(double rad)
+		{
+			return rad * (180.0 / 3.14);
+		}
+
 		std::string toString()
 		{
 			return "[" + std::to_string(getLat()) + "," + std::to_string(getLon()) + "]";

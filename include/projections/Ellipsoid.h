@@ -8,11 +8,15 @@ namespace libegis {
 		double eqr;
 		double eccsq;
 
+		Ellipsoid() {};
+
 		Ellipsoid(double eqr, double eccsq)
 		{
 			this->eqr = eqr;
 			this->eccsq = eccsq;
 		}
+
+		~Ellipsoid() {};
 
 		static Ellipsoid WGS84()
 		{
