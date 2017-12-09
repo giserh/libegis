@@ -1,5 +1,5 @@
 #include <iostream>
-#include "LatLonGrid.h"
+#include "core\LatLonGrid.h"
 
 namespace libegis {
 

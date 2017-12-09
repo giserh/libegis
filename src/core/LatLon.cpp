@@ -2,7 +2,8 @@
 #include <algorithm>
 #include <string>
 #include <cmath>
-#include "LatLon.h"
+#include "core\LatLon.h"
+
 
 # define M_PI          3.141592653589793238462643383279502884L /* pi */
 

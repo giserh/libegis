@@ -1,5 +1,5 @@
 #include <string>
-#include "Pixel.h"
+#include "core\Pixel.h"
 
 namespace libegis {
 
@@ -41,6 +41,19 @@ namespace libegis {
 	int Pixel::getValue()
 	{
 		return value;
+	}
+
+	// TODO: Need to check if its working properly
+	bool Pixel::equals(Pixel &p)
+	{
+		if (&p == this) {
+			return true;
+		}
+		if (&p == NULL || !(p.equals(*this))) {
+			return false;
+		}
+		Pixel other = (Pixel)p;
+		return (other.x == x && other.y == y && other.value == value);
 	}
 
 	int Pixel::getDistanceSquared(Pixel other) {

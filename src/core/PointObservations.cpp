@@ -1,4 +1,4 @@
-#include "PointObservations.h"
+#include "core\PointObservations.h"
 
 namespace libegis {
 

@@ -16,7 +16,7 @@ namespace libegis {
 		int getRow();
 		int getCol();
 		int getValue();
-		// bool equals(Pixel p); // original: public boolean equals(Object o) using "import java.util.Comparator;"
+		bool equals(Pixel &p); // original: public boolean equals(Object o) using "import java.util.Comparator;"
 		int getDistanceSquared(Pixel other);
 		int getDistanceSquared(int otherx, int othery);
 		int compareLocation(Pixel a, Pixel other);
