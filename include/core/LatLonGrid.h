@@ -58,7 +58,7 @@ namespace libegis {
 		/**
 		* Make a deep copy
 		*/
-		LatLonGrid copyOf(LatLonGrid &original)
+		static LatLonGrid copyOf(LatLonGrid &original)
 		{
 			std::vector< std::vector<int> > copy(original.getNumLat(), std::vector<int>(original.getNumLon()));
 			for (int i = 0; i < original.getNumLat(); ++i) {

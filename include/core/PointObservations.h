@@ -53,7 +53,7 @@ namespace libegis {
 
 		int getMissing()
 		{
-			return missing;
+
 		}
 
 		std::vector<ObservationPoint> getPoints()
